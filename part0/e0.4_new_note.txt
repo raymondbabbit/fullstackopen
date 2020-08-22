@@ -1,10 +1,14 @@
-title Create Note
+note over browser:
+User enters note "Sequencer test" and clicks submit
+end note
 
 browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
-note over browser:
-browser is sending the entered text from the from "Sequencer Test"
-end note over 
-
+note over server:
+Server adds the content of the form to the data.json
+Server adds a date
+Server prompts redirect
+end note
+server-->browser: URL redirect to Location /notes
 browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
 server-->browser: HTML-code
 browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
